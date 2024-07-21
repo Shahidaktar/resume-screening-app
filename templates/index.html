@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Screening App</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='resume.png') }}"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">Resume Screening App</h1>
+
+      <div class="upload-section text-center mt-4">
+        <h2>Upload Your Resume</h2>
+        <form
+          action="/pred"
+          method="post"
+          enctype="multipart/form-data"
+          class="d-inline-block mt-3"
+        >
+          <div class="form-group">
+            <input
+              type="file"
+              name="resume"
+              accept=".pdf,.doc,.docx"
+              class="form-control-file"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success">Upload</button>
+        </form>
+      </div>
+
+      {% if recommended_job %}
+      <div class="results-section mt-5">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Recommended Job</h2>
+            <p class="card-text">{{ recommended_job }}</p>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Personal Information</h2>
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Phone:</strong> {{ phone }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Skills</h2>
+            <ul class="list-unstyled">
+              {% for skill in skills %}
+              <li class="badge badge-info">{{ skill }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">Education</h2>
+            <ul class="list-unstyled">
+              {% for education in education_list %}
+              <li>{{ education }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <footer class="footer mt-5 py-3 text-center">
+      <div class="container">
+        <h5>Developed by Shahid Aktar Mandal</h5>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

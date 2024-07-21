@@ -1,0 +1,62 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+}
+
+h1 {
+  color: #333;
+}
+
+.upload-section h2 {
+  color: #555;
+}
+
+.upload-section form {
+  margin-top: 10px;
+}
+
+.upload-section input[type="file"] {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fafafa;
+}
+
+.results-section .card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: #555;
+}
+
+.card-text,
+.card p {
+  color: #777;
+}
+
+.card .badge {
+  margin: 5px;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.footer {
+  position: static;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 10px 0;
+}
